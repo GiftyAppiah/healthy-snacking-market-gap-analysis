@@ -19,7 +19,7 @@ The analysis identified a significant market opportunity within the Chocolate & 
 
 ### Notebook
 
-Link: https://colab.research.google.com/drive/19xQspHZ2PkiGLy1QIJxB0SI2tuR8aZ-2?usp=sharing
+Link: https://github.com/GiftyAppiah/healthy-snacking-market-gap-analysis/blob/main/Notebook/analysis.ipynb
 
 ### Dashboard
 
