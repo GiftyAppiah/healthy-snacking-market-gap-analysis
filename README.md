@@ -5,10 +5,171 @@
 
 ---
 
-## 1. Business Context
-**Helix CPG Partners** advises major food manufacturers on new product development. Our newest client, a global snack manufacturer, wants to launch a "Healthy Snacking" line. They believe the market is oversaturated with sugary treats, but they lack the data to prove where the specific gaps are.
+# Healthy Snacking Market Gap Analysis
 
-They have hired us to answer one question: **"Where is the 'Blue Ocean' in the snack aisle?"**
+## A. Executive Summary
+
+This project analyzed a sample of 200,000 products from the Open Food Facts database to identify underserved opportunities in the healthy snacking market. After data cleaning and validation, 18,119 products with complete nutritional information were retained for analysis. A Nutrient Matrix comparing sugar and protein content revealed that most products are concentrated in high-sugar, low-protein segments, while relatively few products occupy the high-protein, low-sugar space.
+
+The analysis identified a significant market opportunity within the Chocolate & Confectionery category, where only 2.17% of products met the healthy-snacking criteria. Ingredient analysis further showed that Milk/Dairy, Meat/Poultry, and Soy are the most common protein sources among successful high-protein products. Based on the findings, a high-protein, low-sugar chocolate snack is recommended as the most promising product development opportunity.
+
+---
+
+## B. Project Links
+
+### Notebook
+
+Link: https://colab.research.google.com/drive/19xQspHZ2PkiGLy1QIJxB0SI2tuR8aZ-2?usp=sharing
+
+### Dashboard
+
+Link: https://app.powerbi.com/view?r=eyJrIjoiNTZhYzNlMWMtMzllNS00MWU1LThmNDUtZTIyODgyMGUzNDZmIiwidCI6IjEwNGQ4MDQ4LWZkMGMtNDNkNS1hNjMwLWZjNjI5ZTVkYWI1OSJ9&pageName=3d178bef866e05b8e477
+
+### Presentation
+
+Link: https://canva.link/d09dqk6y527qtwl
+
+### Optional Video Walkthrough
+
+Link: [INSERT YOUTUBE LINK]
+
+---
+
+## C. Technical Explanation
+
+### Data Cleaning
+
+The Open Food Facts dataset contains millions of records and hundreds of attributes. To create a manageable and reproducible analysis, a sample of 200,000 products was loaded into Pandas.
+
+The cleaning process included:
+
+- Removing records with missing product names.
+- Removing records with missing category information.
+- Removing records with missing sugar values.
+- Removing records with missing protein values.
+- Filtering biologically impossible nutritional values (e.g., sugar or protein values greater than 100g per 100g).
+- Retaining only records required for the business analysis.
+
+After cleaning and validation, 18,119 products remained for analysis.
+
+### Category Engineering
+
+The `categories_tags` field contained thousands of detailed and inconsistent category labels. To improve interpretability, products were grouped into 11 high-level categories:
+
+- Breakfast & Cereals
+- Beverages
+- Dairy Products
+- Biscuits & Bakery
+- Snacks
+- Chocolate & Confectionery
+- Meals & Prepared Foods
+- Meat & Seafood
+- Protein & Fitness
+- Plant-Based Foods
+- Other
+
+This categorization enabled meaningful comparison across major food segments and supported dashboard filtering and analysis.
+
+### Candidate's Choice Challenge
+
+To provide additional business value, a custom **Market Gap Score** was introduced.
+
+The Market Gap Score combines category size and healthy-product penetration to identify large markets where healthy alternatives remain underrepresented. This metric helps prioritize categories with strong commercial potential rather than relying solely on percentages.
+
+Using this approach, Breakfast & Cereals, Beverages, and Dairy Products emerged as large categories with substantial opportunities for healthy product innovation.
+
+### Key Recommendation
+
+**Based on the data, the biggest market opportunity is in the Chocolate & Confectionery category, specifically targeting products with approximately 20g of protein and less than 2g of sugar per 100g.**
+
+The recommended product concept is a high-protein chocolate snack utilizing dairy- or soy-based  protein sources.
+
+---
+
+## Project Structure
+
+```text
+THE-MARKET-GAP-ANALYSIS/
+│
+├── Assets/
+│   └── Dashboard_Screenshot.png
+│
+├── Dashboard/
+│   ├── Market_Gap_Dashboard.pbix
+│   └── Market_Gap_Presentation.pdf
+│
+├── Data/
+│   └── openfoodfacts.csv (excluded from GitHub using .gitignore)
+│
+├── Exports/
+│   ├── cleaned_food_analysis.csv
+│   ├── opportunity_summary.csv
+│   └── protein_sources.csv
+│
+├── Notebook/
+│   ├── analysis.ipynb
+│   └── analysis.html
+│
+├── LICENSE
+└── README.md
+```
+
+## Repository Contents
+
+### Notebook Files
+
+- **analysis.ipynb** — Main Jupyter notebook containing data cleaning, exploratory analysis, feature engineering, visualization, and business recommendations.
+- **analysis.html** — HTML export of the notebook provided to ensure reviewers can view outputs even if GitHub fails to render the notebook.
+
+### Dashboard Files
+
+- **Market_Gap_Dashboard.pbix** — Interactive Power BI dashboard containing all visualizations and business insights.
+- **Market_Gap_Presentation.pdf** — Final presentation summarizing the project findings, recommendations, and market opportunity.
+
+### Exported Analysis Files
+
+- **cleaned_food_analysis.csv** — Cleaned dataset used for all analyses and dashboard creation.
+- **opportunity_summary.csv** — Summary table containing category-level opportunity metrics, including healthy-product penetration and market gap scores.
+- **protein_sources.csv** — Frequency analysis of protein sources identified within high-protein, low-sugar products.
+
+### Assets
+
+- **Dashboard_Screenshot.png** — Screenshot of the final Power BI dashboard used for repository preview and documentation.
+
+### Data
+
+- **openfoodfacts.csv** — Original Open Food Facts dataset used for analysis. This file is excluded from the GitHub repository through `.gitignore` due to its large size.
+
+## Dashboard Preview
+
+_Add dashboard screenshots here before submission._
+
+![Dashboard Screenshot](assets/dashboard.png)
+
+## Tools Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Power BI 
+- Jupyter Notebook
+
+## Methodology
+
+1. Data Collection and Sampling
+2. Data Cleaning and Validation
+3. Category Engineering
+4. Nutritional Analysis
+5. Market Gap Identification
+6. Ingredient Mining
+7. Dashboard Development
+8. Business Recommendation
+
+## 1. Business Context
+**Helix CPG Partners** advises major food └──manufacturers on new product development. Our newest client, a global snack manufacturer, wants to launch a "Healthy Snacking" line. They believe the market is oversaturated with sugary treats, but they lack the data to prove where the specific gaps are.
+
+ They have hired us to answer one question: **"Where is the 'Blue Ocean' in the snack aisle?"**
 
 Specifically, they are looking for product categories that are currently under-served—areas where consumer demand for health (e.g., High Protein, High Fiber) is not being met by current product offerings (which are mostly High Sugar, High Fat).
 
@@ -32,7 +193,7 @@ You have the flexibility to choose your development environment:
 ## 4. User Stories & Acceptance Criteria
 
 ### Story 1: Data Ingestion & "The Clean Up"
-**As a** Strategy Director,  
+* *As a** Strategy Director,  
 **I want** a clean dataset that removes products with erroneous nutritional information,  
 **So that** my analysis is not skewed by bad data entry.
 
@@ -61,7 +222,7 @@ You have the flexibility to choose your development environment:
     * Allow the user to filter the chart by the "High Level Categories" you created in Story 2.
     * **Key Visual:** Identify the "Empty Quadrant" (e.g., High Protein + Low Sugar).
 
-### Story 4: The Recommendation
+### Story 4: The Recommend ation
 **As a** Client,  
 **I want** a clear text recommendation on what product we should build,  
 **So that** I can take this to the R&D team.
