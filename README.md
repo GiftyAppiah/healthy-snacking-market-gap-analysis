@@ -140,11 +140,11 @@ THE-MARKET-GAP-ANALYSIS/
 
 - **openfoodfacts.csv** — Original Open Food Facts dataset used for analysis. This file is excluded from the GitHub repository through `.gitignore` due to its large size.
 
+
+
 ## Dashboard Preview
 
-_Add dashboard screenshots here before submission._
-
-![Dashboard Screenshot](assets/dashboard.png)
+![Dashboard Screenshot](https://raw.githubusercontent.com/GiftyAppiah/healthy-snacking-market-gap-analysis/main/Assets/Dashboard_Screenshot.png)
 
 ## Tools Used
 
